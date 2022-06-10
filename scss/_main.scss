@@ -1,0 +1,218 @@
+$colors: (
+    'paleBlue'  : hsl(243, 100%, 93%),
+    'grayishBlue' : hsl(229, 7%, 55%),
+    'darkBlue' : hsl(228, 56%, 26%),
+    'veryDarkBlue' : hsl(229, 57%, 11%),
+);
+
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+    background-color: map-get($colors, 'veryDarkBlue' );
+    background-image: url('../images/bg-desktop.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 0 50vh;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: map-get($colors, 'paleBlue' );
+}
+
+.main{
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    
+    &__fylo,
+    &__content{
+        background-color: map-get($colors, 'darkBlue' );
+        padding: 20px 40px;
+    }
+
+    &__fylo{
+        width: 300px;
+        height: 175px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px 100px 10px 10px;
+        padding: 30px 40px;
+
+    }
+
+    &__content{
+        position: relative;
+        height: 140px;
+        margin-left: 20px;
+        width: 500px;
+        border-radius: 15px;
+    }
+
+}
+
+
+.logo__img{
+    margin-bottom: 20px;
+}
+
+.fylo__options{
+    display: flex;
+}
+
+.options__img{
+    margin-right: 20px;
+    background-color:  map-get($colors, 'veryDarkBlue' );
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.content__range{
+    position: relative;
+    height: 10px;
+    background-color: map-get($colors, 'veryDarkBlue' );
+    width: 100%;
+    border-radius: 10px;
+}
+
+.range{
+    border-radius: 10px;
+    background-image: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+}
+
+.range::before{
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color:map-get($colors, 'paleBlue' ); ;
+    position: absolute;
+    right: 0;
+}
+
+.content__number,
+.content__white{
+    position: absolute
+}
+
+.number--1{
+    top: 70px;
+    left: 40px;
+}
+
+.number--2{
+    top: 70px;
+    right: 40px;
+}
+
+
+.content__white{
+    top: -30px;
+    right: 40px;
+    background-color: hsl(243deg, 100%, 93%);
+    color: black;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+
+.content__white::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    top: 45px;
+    background-color: hsl(243deg, 100%, 93%);
+    clip-path: polygon(100% 70%, 0 0, 100% 0);
+}
+
+.content__paragraph span,
+.number--1,
+.number--2,
+.white__paragraph{
+    font-weight: 700;
+}
+
+.white__paragraph span{
+    font-weight: 400;
+    font-size: 10px;
+}
+
+@media only screen and (max-width: 900px){
+    
+    body{
+        background-image: url('../images/bg-desktop.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+    }
+
+    .main{
+        flex-direction: column;
+        align-items: center;
+
+        &__fylo,
+        &__content{
+            width: 350px;
+        }
+
+        &__content{
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+    }
+
+    
+    .content__white{
+        top: 110px;
+        right: 120px;
+    }
+
+    .content__white::before{
+        content: '';
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 400px){
+
+    .main{
+
+        &__fylo,
+        &__content{
+            width: 270px;
+        }
+    }
+
+    .number--1,
+    .number--2
+    {
+        top: 80px;
+    }
+
+    .content__white{
+        top: 120px;
+        right: 90px;
+    }
+}
